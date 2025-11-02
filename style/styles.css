@@ -1,0 +1,979 @@
+:root {
+    /* Light Theme */
+    --primary-color: #4f46e5;
+    --primary-light: #6366f1;
+    --secondary-color: #ec4899;
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-nav: #1e293b;
+
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --text-light: #ffffff;
+
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+
+    --skill-bar-bg: #f1f5f9;
+    --skill-progress-html: linear-gradient(90deg, #4f46e5, #6366f1);
+    --skill-progress-js: linear-gradient(90deg, #10b981, #34d399);
+    --skill-progress-c: linear-gradient(90deg, #06b6d4, #22d3ee);
+    --skill-progress-python: linear-gradient(90deg, #b4437f, #b4437f);
+}
+
+.dark-theme {
+    --primary-color: #818cf8;
+    --primary-light: #6366f1;
+    --secondary-color: #f472b6;
+
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --bg-nav: #0f172a;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #e2e8f0;
+    --text-muted: #cbd5e1;
+    --text-light: #ffffff;
+
+    --border-color: #475569;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+    --skill-bar-bg: #475569;
+    --skill-progress-html: linear-gradient(90deg, #4f46e5, #6366f1);
+    --skill-progress-js: linear-gradient(90deg, #10b981, #34d399);
+    --skill-progress-c: linear-gradient(90deg, #06b6d4, #22d3ee);
+    --skill-progress-python: linear-gradient(90deg, #b4437f, #b4437f);
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: var(--text-light);
+    box-shadow: var(--shadow);
+}
+
+.header-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1);
+}
+
+.header-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--text-light) !important;
+    border-radius: 25px !important;
+    font-weight: 500;
+    transition: all 0.3s ease !important;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+/* Navigation */
+.navigation {
+    background: var(--bg-nav);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-pills .nav-link {
+    color: var(--text-secondary) !important;
+    padding: 1rem 2rem !important;
+    font-weight: 500;
+    transition: all 0.3s ease !important;
+    border-bottom: 3px solid transparent;
+    border-radius: 0 !important;
+    background: none !important;
+}
+
+.nav-pills .nav-link:hover {
+    color: var(--primary-color) !important;
+    background: rgba(99, 102, 241, 0.05) !important;
+}
+
+.nav-pills .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color) !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem 0;
+    background: var(--bg-primary);
+}
+
+/* Profile Section */
+.profile-section {
+    margin-bottom: 3rem;
+}
+
+.profile-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: none !important;
+}
+
+.profile-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-image-container {
+    flex: 0 0 350px; /* Еще больше увеличил ширину контейнера */
+}
+
+.profile-image {
+    width: 100%;
+    height: 400px; /* Еще больше увеличил высоту фото */
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.about-section {
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.about-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Download Button */
+.download-btn {
+    background: var(--primary-color) !important;
+    color: white !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 25px !important;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background: var(--primary-light) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    color: white !important;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-bottom: 3rem;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: none !important;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-percent {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.skill-bar {
+    height: 8px;
+    background: var(--skill-bar-bg);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+.html-css-progress {
+    width: 25%;
+    background: var(--skill-progress-html);
+}
+
+.js-progress {
+    width: 10%;
+    background: var(--skill-progress-js);
+}
+
+.c-progress {
+    width: 30%;
+    background: var(--skill-progress-c);
+}
+
+.python-progress {
+    width: 70%;
+    background: var(--skill-progress-python);
+}
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: 3rem;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: none !important;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    height: 320px; /* Еще больше увеличил высоту картинок проектов */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem; /* Уменьшил отступ */
+}
+
+.project-description {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem; /* Уменьшил отступ */
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem; /* Уменьшил отступ */
+}
+
+.tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.project-btn {
+    background: transparent !important;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    width: 100%;
+    margin-top: auto; /* Чтобы кнопка всегда была внизу */
+}
+
+.project-btn:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-nav);
+    color: var(--text-secondary);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Projects Filter */
+.projects-filter {
+    margin-bottom: 2rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    background: var(--bg-secondary) !important;
+    color: var(--text-secondary) !important;
+    border: 2px solid var(--border-color) !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 25px !important;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease !important;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+.filter-btn.active {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Progress Section */
+.progress-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.progress-info {
+    display: inline-block;
+    background: var(--bg-card);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.progress-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Diary Styles */
+.record-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color) !important;
+    border-radius: var(--border-radius-sm) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Улучшение видимости placeholder в темной теме */
+.dark-theme .form-control::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1;
+}
+
+.dark-theme .form-select:invalid {
+    color: #94a3b8 !important;
+}
+
+.form-input:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cancel-btn {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    border: 2px solid var(--border-color) !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 25px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    width: 100%;
+}
+
+.cancel-btn:hover {
+    background: var(--text-secondary) !important;
+    color: white !important;
+    border-color: var(--text-secondary) !important;
+    transform: translateY(-2px);
+}
+
+.progress-record {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--secondary-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0 !important;
+}
+
+.progress-record:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    background: #db2777 !important;
+    transform: scale(1.1);
+}
+
+/* Contacts Layout */
+.contacts-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-form-section,
+.contact-info-section {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: none !important;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-input.error,
+.form-textarea.error,
+.form-control.is-invalid {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}
+
+.contact-submit {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow);
+}
+
+.contact-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.contact-link,
+.contact-text {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.success-message,
+.alert-success {
+    background: var(--primary-color) !important;
+    color: white !important;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    border: none !important;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Status Styles */
+.status-completed {
+    color: #10b981 !important;
+    font-weight: 600;
+}
+
+.status-in-progress {
+    color: #f59e0b !important;
+    font-weight: 600;
+}
+
+.skill-percent[data-id] {
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.skill-percent[data-id]:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.status-completed:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.status-in-progress:hover {
+    background: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Notification Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 1.4rem;
+    }
+
+    .header-logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-pills {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-pills .nav-link {
+        padding: 0.75rem 1rem !important;
+        text-align: center;
+    }
+
+    .profile-image-container {
+        flex: none;
+        width: 280px; /* Увеличил для мобильных */
+        margin: 0 auto;
+    }
+
+    .profile-image {
+        height: 320px; /* Увеличил для мобильных */
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .theme-toggle .theme-text {
+        display: none;
+    }
+
+    .theme-toggle {
+        padding: 0.5rem !important;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem;
+    }
+
+    .project-card {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .project-image {
+        height: 260px; /* Увеличил для мобильных */
+    }
+
+    .project-title {
+        font-size: 1.25rem;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .delete-btn {
+        opacity: 1 !important;
+    }
+
+    .contacts-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form-section,
+    .contact-info-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contacts-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .profile-card {
+        padding: 1.5rem;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .header-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-title {
+        font-size: 1.2rem;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem;
+    }
+
+    .progress-info {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .progress-text {
+        font-size: 1.25rem;
+    }
+
+    .project-content {
+        padding: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem; /* Уменьшил для мобильных */
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem; /* Уменьшил для мобильных */
+    }
+
+    .project-tags {
+        margin-bottom: 0.5rem; /* Уменьшил для мобильных */
+    }
+
+    .skill-percent[data-id] {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .contact-form-section,
+    .contact-info-section {
+        padding: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        margin-top: 0;
+    }
+}
+
+/* Переопределение Bootstrap для темной темы */
+.dark-theme .card {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.dark-theme .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.dark-theme .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.dark-theme .text-muted {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .alert-success {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Улучшение видимости текста в формах для темной темы */
+.dark-theme .form-control::placeholder {
+    color: #cbd5e1 !important;
+    opacity: 0.8;
+}
+
+.dark-theme .contact-text,
+.dark-theme .contact-link,
+.dark-theme .about-text,
+.dark-theme .project-description {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .profile-subtitle {
+    color: var(--text-muted) !important;
+}
